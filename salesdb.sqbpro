@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="salesdb.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2986"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="Customers" custom_title="0" dock_id="1" table="4,9:mainCustomers"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000011300ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">-- SQL &amp; RELATIONAL DATABASE DESIGN
+-- SQLite | SalesDB
+-- Part I: Database setup + 10 basic tasks
+-- Part II: Assignments 1–3 (28 tasks)
+
+PRAGMA foreign_keys = ON;
+
+
+-- DATABASE SETUP
+
+
+CREATE TABLE Customers (
+    CustomerID INTEGER PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Country VARCHAR(50),
+    Score INTEGER
+);
+
+CREATE TABLE Products (
+    ProductID INTEGER PRIMARY KEY,
+    Product VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10,2)
+);
+
+CREATE TABLE Employees (
+    EmployeeID INTEGER PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Department VARCHAR(50),
+    BirthDate DATE,
+    Gender VARCHAR(10),
+    Salary DECIMAL(10,2),
+    ManagerID INTEGER,
+    FOREIGN KEY (ManagerID) REFERENCES Employees(EmployeeID)
+);
+
+CREATE TABLE Orders (
+    OrderID INTEGER PRIMARY KEY,
+    ProductID INTEGER,
+    CustomerID INTEGER,
+    SalesPersonID INTEGER,
+    OrderDate DATE,
+    ShipDate DATE,
+    OrderStatus VARCHAR(30),
+    ShipAddress VARCHAR(150),
+    BillAddress VARCHAR(150),
+    Quantity INTEGER,
+    Sales DECIMAL(10,2),
+    CreationTime DATETIME,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+    FOREIGN KEY (SalesPersonID) REFERENCES Employees(EmployeeID)
+);
+
+-- Sample customers
+INSERT INTO Customers (CustomerID, FirstName, LastName, Country, Score) VALUES
+(1, 'Ayla', 'Karimova', 'Azerbaijan', 720),
+(2, 'John', 'Miller', 'USA', 450),
+(3, 'Emma', 'Schmidt', 'Germany', 860),
+(4, 'Sara', 'Martin', 'France', 280),
+(5, 'Lukas', 'Weber', 'Germany', 550);
+
+-- Sample products
+INSERT INTO Products (ProductID, Product, Category, Price) VALUES
+(101, 'Wireless Mouse', 'Electronics', 55),
+(102, 'Office Chair', 'Furniture', 230),
+(103, 'Laptop', 'Electronics', 850),
+(104, 'Notebook', 'Stationery', 12),
+(105, 'Smart Phone', 'Electronics', 420);
+
+-- Sample employees
+INSERT INTO Employees
+(EmployeeID, FirstName, LastName, Department, BirthDate, Gender, Salary, ManagerID) VALUES
+(11, 'David', 'Lee', 'Sales', '1990-04-12', 'Male', 2200, NULL),
+(12, 'Maya', 'Brown', 'Sales', '1992-08-21', 'Female', 2400, 11),
+(13, 'Alex', 'Green', 'Support', '1988-02-05', 'Male', 1900, NULL);
+
+-- Sample orders + scenario records for IDs used in the tasks
+INSERT INTO Orders
+(OrderID, ProductID, CustomerID, SalesPersonID, OrderDate, ShipDate, OrderStatus,
+ ShipAddress, BillAddress, Quantity, Sales, CreationTime) VALUES
+(201, 101, 1, 11, '2026-10-04', '2026-10-06', 'Delivered',
+ '12 Nizami Street, Baku', '12 Nizami Street, Baku', 2, 110, '2026-10-04 09:15:00'),
+(202, 103, 3, 12, '2026-10-08', '2026-10-10', 'Shipped',
+ '8 Rustaveli Avenue, Tbilisi', '8 Rustaveli Avenue, Tbilisi', 1, 850, '2026-10-08 10:30:00'),
+(203, 102, 2, 11, '2026-10-12', NULL, 'Pending',
+ '45 Main Street, New York', '45 Main Street, New York', 1, 230, '2026-10-12 11:00:00'),
+(204, 105, 5, 12, '2026-10-15', '2026-10-17', 'Delivered',
+ '21 Berlin Street, Berlin', '21 Berlin Street, Berlin', 1, 420, '2026-10-15 12:20:00'),
+(105, 103, 4, 11, '2026-10-20', NULL, 'Pending',
+ '10 Paris Road, Paris', '10 Paris Road, Paris', 1, 850, '2026-10-20 13:00:00'),
+(110, 101, 1, 12, '2026-10-01', '2026-10-10', 'Delivered',
+ 'Old address, Baku', '12 Nizami Street, Baku', 10, 550, '2026-10-01 08:30:00'),
+(206, 103, 3, 11, '2026-10-01', '2026-10-15', 'Delivered',
+ '8 Rustaveli Avenue, Tbilisi', '8 Rustaveli Avenue, Tbilisi', 4, 3400, '2026-10-01 09:00:00'),
+(207, 105, 3, 11, '2026-10-02', '2026-10-10', 'Delivered',
+ '8 Rustaveli Avenue, Tbilisi', '8 Rustaveli Avenue, Tbilisi', 7, 2940, '2026-10-02 09:30:00');
+
+-- Verify setup
+SELECT * FROM Customers;
+SELECT * FROM Products;
+SELECT * FROM Employees;
+SELECT * FROM Orders;
+
+-- PART I — 10 BASIC SQL TASKS
+
+-- Task 1: Retrieve all customers, then selected columns.
+SELECT * FROM Customers;
+SELECT FirstName, LastName, Country
+FROM Customers;
+
+-- Task 2: Customers from Germany.
+SELECT CustomerID, FirstName, LastName, Country
+FROM Customers
+WHERE Country = 'Germany';
+
+-- Task 3: Score &gt;= 300 and country is Germany or France.
+SELECT CustomerID, FirstName, LastName, Country, Score
+FROM Customers
+WHERE Score &gt;= 300
+  AND Country IN ('Germany', 'France');
+
+-- Task 4: Products from highest to lowest price.
+SELECT ProductID, Product, Category, Price
+FROM Products
+ORDER BY Price DESC;
+
+-- Task 5: Products priced between 50 and 300 (inclusive).
+SELECT Product, Price
+FROM Products
+WHERE Price BETWEEN 50 AND 300;
+
+-- Task 6: Product names containing &quot;Phone&quot;.
+SELECT Product, Category
+FROM Products
+WHERE Product LIKE '%Phone%';
+
+-- Task 7: Unique categories in alphabetical order.
+SELECT DISTINCT Category
+FROM Products
+ORDER BY Category ASC;
+
+-- Task 8: Orders with the customer's first and last name.
+SELECT Orders.OrderID, Customers.FirstName, Customers.LastName
+FROM Orders
+INNER JOIN Customers
+    ON Orders.CustomerID = Customers.CustomerID;
+
+-- Task 9: Order count and total sales for each status.
+SELECT OrderStatus, COUNT(*) AS OrderCount, SUM(Sales) AS TotalSales
+FROM Orders
+GROUP BY OrderStatus
+ORDER BY TotalSales DESC;
+
+-- Task 10: Insert, update, verify and delete one test product.
+INSERT INTO Products (ProductID, Product, Category, Price)
+VALUES (9999, 'Test Product', 'Testing', 10);
+
+UPDATE Products
+SET Price = 15
+WHERE ProductID = 9999;
+
+SELECT * FROM Products
+WHERE ProductID = 9999;
+
+DELETE FROM Products
+WHERE ProductID = 9999;
+
+-- PART II — ASSIGNMENT 1: CUSTOMER LOYALTY AND SALES ANALYSIS
+
+-- Assignment 1, Task 1: Customers with Score &gt; 500.
+SELECT FirstName, LastName, Country, Score
+FROM Customers
+WHERE Score &gt; 500
+ORDER BY Score DESC;
+
+-- Assignment 1, Task 2: Germany, France or USA; Score &gt;= 300.
+SELECT FirstName, LastName, Country, Score
+FROM Customers
+WHERE Country IN ('Germany', 'France', 'USA')
+  AND Score &gt;= 300;
+
+-- Assignment 1, Task 3: Purchase history with customer full name.
+SELECT
+    Customers.FirstName || ' ' || Customers.LastName AS Customer,
+    Orders.OrderID,
+    Orders.OrderDate,
+    Orders.Sales
+FROM Customers
+INNER JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID;
+
+-- Assignment 1, Task 4: Customers who have never placed an order.
+SELECT
+    Customers.CustomerID,
+    Customers.FirstName,
+    Customers.LastName,
+    Customers.Country
+FROM Customers
+LEFT JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID
+WHERE Orders.OrderID IS NULL;
+
+-- Assignment 1, Task 5: Total spending for each customer with orders.
+SELECT
+    Customers.FirstName || ' ' || Customers.LastName AS Customer,
+    SUM(Orders.Sales) AS TotalSales
+FROM Customers
+INNER JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID
+GROUP BY Customers.CustomerID, Customers.FirstName, Customers.LastName
+ORDER BY TotalSales DESC;
+
+-- Assignment 1, Task 6: Customers whose total Sales is greater than 1,000.
+SELECT
+    Customers.FirstName || ' ' || Customers.LastName AS Customer,
+    SUM(Orders.Sales) AS TotalSales
+FROM Customers
+INNER JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID
+GROUP BY Customers.CustomerID, Customers.FirstName, Customers.LastName
+HAVING SUM(Orders.Sales) &gt; 1000
+ORDER BY TotalSales DESC;
+
+-- Assignment 1, Task 7: Top five customers by total spending.
+SELECT
+    Customers.FirstName || ' ' || Customers.LastName AS Customer,
+    Customers.Country,
+    SUM(Orders.Sales) AS TotalSales
+FROM Customers
+INNER JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID
+GROUP BY Customers.CustomerID, Customers.FirstName, Customers.LastName, Customers.Country
+ORDER BY TotalSales DESC
+LIMIT 5;
+
+-- 
+-- PART II — ASSIGNMENT 2: ORDER AND DELIVERY INVESTIGATION
+-- 
+
+-- Assignment 2, Task 1: Orders placed in October 2026.
+SELECT OrderID, CustomerID, OrderDate, ShipDate, OrderStatus
+FROM Orders
+WHERE OrderDate &gt;= '2026-10-01'
+  AND OrderDate &lt; '2026-11-01'
+ORDER BY OrderDate;
+
+-- Assignment 2, Task 2: Pending orders, oldest first.
+SELECT *
+FROM Orders
+WHERE OrderStatus = 'Pending'
+ORDER BY OrderDate ASC;
+
+-- Assignment 2, Task 3: Shipments delivered more than 7 days after ordering.
+SELECT
+    Orders.OrderID,
+    Customers.FirstName || ' ' || Customers.LastName AS Customer,
+    Orders.OrderDate,
+    Orders.ShipDate
+FROM Orders
+INNER JOIN Customers
+    ON Orders.CustomerID = Customers.CustomerID
+WHERE Orders.ShipDate IS NOT NULL
+  AND julianday(Orders.ShipDate) - julianday(Orders.OrderDate) &gt; 7;
+
+-- Assignment 2, Task 4: Customers and countries linked to delayed shipments.
+SELECT DISTINCT
+    Customers.FirstName,
+    Customers.LastName,
+    Customers.Country
+FROM Orders
+INNER JOIN Customers
+    ON Orders.CustomerID = Customers.CustomerID
+WHERE Orders.ShipDate IS NOT NULL
+  AND julianday(Orders.ShipDate) - julianday(Orders.OrderDate) &gt; 7;
+
+-- Assignment 2, Task 5: Correct the status and ship date for OrderID 105.
+SELECT * FROM Orders WHERE OrderID = 105;
+UPDATE Orders
+SET OrderStatus = 'Shipped',
+    ShipDate = '2026-11-05'
+WHERE OrderID = 105;
+SELECT * FROM Orders WHERE OrderID = 105;
+
+-- Assignment 2, Task 6: Correct the shipping address for OrderID 110.
+SELECT * FROM Orders WHERE OrderID = 110;
+UPDATE Orders
+SET ShipAddress = '45 Main Street, Baku'
+WHERE OrderID = 110;
+SELECT * FROM Orders WHERE OrderID = 110;
+
+-- Assignment 2, Task 7: Insert and then remove temporary test OrderID 999.
+INSERT INTO Orders
+(OrderID, ProductID, CustomerID, SalesPersonID, OrderDate, ShipDate, OrderStatus,
+ ShipAddress, BillAddress, Quantity, Sales, CreationTime)
+VALUES
+(999, 101, 1, 11, '2026-10-25', NULL, 'Pending',
+ 'Test address, Baku', 'Test address, Baku', 1, 55, '2026-10-25 10:00:00');
+
+SELECT * FROM Orders WHERE OrderID = 999;
+DELETE FROM Orders
+WHERE OrderID = 999;
+
+-- Assignment 2, Task 8: Count orders by status.
+SELECT OrderStatus, COUNT(*) AS OrderCount
+FROM Orders
+GROUP BY OrderStatus
+ORDER BY OrderCount DESC;
+
+-- Assignment 2, Task 9: Orders that have not shipped yet.
+SELECT
+    Orders.OrderID,
+    Customers.FirstName || ' ' || Customers.LastName AS Customer,
+    Orders.OrderDate,
+    Orders.OrderStatus
+FROM Orders
+INNER JOIN Customers
+    ON Orders.CustomerID = Customers.CustomerID
+WHERE Orders.ShipDate IS NULL;
+
+-- PART II — ASSIGNMENT 3: PRODUCTS AND EMPLOYEE PERFORMANCE
+
+-- Assignment 3, Task 1: Products priced between 50 and 300.
+SELECT Product, Category, Price
+FROM Products
+WHERE Price BETWEEN 50 AND 300
+ORDER BY Price ASC;
+
+-- Assignment 3, Task 2: Electronics products priced above 500.
+SELECT Product, Category, Price
+FROM Products
+WHERE Category = 'Electronics'
+  AND Price &gt; 500;
+
+-- Assignment 3, Task 3: Products with order quantities and sales.
+SELECT
+    Products.Product,
+    Products.Category,
+    Orders.Quantity,
+    Orders.Sales
+FROM Products
+INNER JOIN Orders
+    ON Products.ProductID = Orders.ProductID;
+
+-- Assignment 3, Task 4: Five best-selling products by total quantity.
+SELECT
+    Products.Product,
+    SUM(Orders.Quantity) AS TotalQuantity
+FROM Products
+INNER JOIN Orders
+    ON Products.ProductID = Orders.ProductID
+GROUP BY Products.ProductID, Products.Product
+ORDER BY TotalQuantity DESC
+LIMIT 5;
+
+-- Assignment 3, Task 5: Products that have never been ordered.
+SELECT Products.ProductID, Products.Product, Products.Category
+FROM Products
+LEFT JOIN Orders
+    ON Products.ProductID = Orders.ProductID
+WHERE Orders.OrderID IS NULL;
+
+-- Assignment 3, Task 6: Total sales by employee.
+SELECT
+    Employees.FirstName || ' ' || Employees.LastName AS Employee,
+    Employees.Department,
+    SUM(Orders.Sales) AS TotalSales
+FROM Employees
+INNER JOIN Orders
+    ON Employees.EmployeeID = Orders.SalesPersonID
+GROUP BY Employees.EmployeeID, Employees.FirstName, Employees.LastName, Employees.Department
+ORDER BY TotalSales DESC;
+
+-- Assignment 3, Task 7: Employees with total Sales above 5,000.
+SELECT
+    Employees.FirstName || ' ' || Employees.LastName AS Employee,
+    Employees.Department,
+    SUM(Orders.Sales) AS TotalSales
+FROM Employees
+INNER JOIN Orders
+    ON Employees.EmployeeID = Orders.SalesPersonID
+GROUP BY Employees.EmployeeID, Employees.FirstName, Employees.LastName, Employees.Department
+HAVING SUM(Orders.Sales) &gt; 5000
+ORDER BY TotalSales DESC;
+
+-- Assignment 3, Task 8: Insert the new product.
+INSERT INTO Products (ProductID, Product, Category, Price)
+VALUES (501, 'Wireless Keyboard', 'Electronics', 75);
+
+-- Assignment 3, Task 9: Correct the price of ProductID 501.
+UPDATE Products
+SET Price = 90
+WHERE ProductID = 501;
+
+SELECT * FROM Products WHERE ProductID = 501;
+
+-- Assignment 3, Task 10: Add stock quantity to Products.
+ALTER TABLE Products
+ADD COLUMN StockQuantity INTEGER;
+
+-- Assignment 3, Task 11: Unique directory of customer and employee names.
+SELECT FirstName, LastName
+FROM Customers
+UNION
+SELECT FirstName, LastName
+FROM Employees
+ORDER BY FirstName, LastName;
+
+-- Assignment 3, Task 12: Total quantity and sales by category; total sales &gt; 2,000.
+SELECT
+    Products.Category,
+    SUM(Orders.Quantity) AS TotalQuantity,
+    SUM(Orders.Sales) AS TotalSales
+FROM Products
+INNER JOIN Orders
+    ON Products.ProductID = Orders.ProductID
+GROUP BY Products.Category
+HAVING SUM(Orders.Sales) &gt; 2000
+ORDER BY TotalSales DESC;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

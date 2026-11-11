@@ -1,0 +1,183 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram id="assignment5-university-erd" name="University Registration ERD">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Assignment 5 — University Course Registration ERD" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="15" width="800" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= STUDENTS ================= -->
+        <mxCell id="tbl_students" value="Students" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="250" height="212" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_r0" value="StudentID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_students">
+          <mxGeometry y="30" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_students">
+          <mxGeometry y="30" width="50" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_r1" value="FirstName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_students">
+          <mxGeometry y="56" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_r2" value="LastName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_students">
+          <mxGeometry y="82" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_r3" value="Email : VARCHAR(100)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_students">
+          <mxGeometry y="108" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_r4" value="BirthDate : DATE" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_students">
+          <mxGeometry y="134" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_r5" value="Faculty : VARCHAR(100)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_students">
+          <mxGeometry y="160" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="stu_r6" value="EnrollmentYear : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_students">
+          <mxGeometry y="186" width="250" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= ENROLLMENTS ================= -->
+        <mxCell id="tbl_enrollments" value="Enrollments" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="390" y="110" width="250" height="186" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_r0" value="EnrollmentID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="30" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="30" width="50" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_r1" value="StudentID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=2;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="56" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_k1" value="FK, UQ" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#2F5FA7;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="56" width="50" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_r2" value="CourseID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=2;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="82" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_k2" value="FK, UQ" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#2F5FA7;strokeColor=none;fillColor=none;fontSize=10;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="82" width="50" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_r3" value="EnrollmentDate : DATE" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="108" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_r4" value="Grade : DECIMAL(5,2)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="134" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="enr_r5" value="Status : VARCHAR(20)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_enrollments">
+          <mxGeometry y="160" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="note_uq" value="UQ = UNIQUE (StudentID, CourseID)&lt;br&gt;one enrollment per student per course" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=11;fontStyle=2;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="390" y="302" width="250" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= COURSES ================= -->
+        <mxCell id="tbl_courses" value="Courses" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="740" y="110" width="250" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="crs_r0" value="CourseID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_courses">
+          <mxGeometry y="30" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="crs_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_courses">
+          <mxGeometry y="30" width="50" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="crs_r1" value="CourseName : VARCHAR(100)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_courses">
+          <mxGeometry y="56" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="crs_r2" value="Credits : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_courses">
+          <mxGeometry y="82" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="crs_r3" value="Semester : VARCHAR(20)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_courses">
+          <mxGeometry y="108" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="crs_r4" value="InstructorID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=2;" vertex="1" parent="tbl_courses">
+          <mxGeometry y="134" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="crs_k4" value="FK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#2F5FA7;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_courses">
+          <mxGeometry y="134" width="50" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= INSTRUCTORS ================= -->
+        <mxCell id="tbl_instructors" value="Instructors" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="110" width="250" height="186" as="geometry"/>
+        </mxCell>
+        <mxCell id="ins_r0" value="InstructorID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_instructors">
+          <mxGeometry y="30" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ins_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_instructors">
+          <mxGeometry y="30" width="50" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ins_r1" value="FirstName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_instructors">
+          <mxGeometry y="56" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ins_r2" value="LastName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_instructors">
+          <mxGeometry y="82" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ins_r3" value="Department : VARCHAR(100)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_instructors">
+          <mxGeometry y="108" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ins_r4" value="Email : VARCHAR(100)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_instructors">
+          <mxGeometry y="134" width="250" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ins_r5" value="Salary : DECIMAL(10,2)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=56;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_instructors">
+          <mxGeometry y="160" width="250" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= RELATIONSHIPS ================= -->
+        <!-- Students 1 : N Enrollments -->
+        <mxCell id="e_stu_enr" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmandOne;startArrow=ERzeroToMany;endFill=0;startFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="enr_r1" target="stu_r0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="179"/>
+              <mxPoint x="340" y="153"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Courses 1 : N Enrollments -->
+        <mxCell id="e_crs_enr" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmandOne;startArrow=ERzeroToMany;endFill=0;startFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="enr_r2" target="crs_r0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="205"/>
+              <mxPoint x="690" y="153"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Instructors 1 : N Courses -->
+        <mxCell id="e_ins_crs" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmandOne;startArrow=ERzeroToMany;endFill=0;startFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="crs_r4" target="ins_r0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1040" y="257"/>
+              <mxPoint x="1040" y="153"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Students M : N Courses (logical, resolved by Enrollments) -->
+        <mxCell id="e_stu_crs_mn" value="M : N (via Enrollments)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;dashPattern=6 4;startArrow=ERmany;endArrow=ERmany;startFill=0;endFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#888888;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;fontColor=#666666;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tbl_students" target="tbl_courses">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="165" y="75"/>
+              <mxPoint x="865" y="75"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ================= EXPLANATION ================= -->
+        <mxCell id="box_keys" value="&lt;b&gt;Primary Keys (PK)&lt;/b&gt;&lt;br&gt;• Students.StudentID&lt;br&gt;• Instructors.InstructorID&lt;br&gt;• Courses.CourseID&lt;br&gt;• Enrollments.EnrollmentID&lt;br&gt;&lt;br&gt;&lt;b&gt;Foreign Keys (FK)&lt;/b&gt;&lt;br&gt;• Courses.InstructorID → Instructors.InstructorID&lt;br&gt;• Enrollments.StudentID → Students.StudentID&lt;br&gt;• Enrollments.CourseID → Courses.CourseID&lt;br&gt;&lt;br&gt;&lt;b&gt;Unique key (UQ)&lt;/b&gt;&lt;br&gt;• Enrollments (StudentID, CourseID) — composite" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;strokeColor=#999999;fillColor=#F9F9F9;spacing=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="380" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="box_rel" value="&lt;b&gt;Relationships and cardinality&lt;/b&gt;&lt;br&gt;1) Instructors 1 : N Courses — an instructor may teach several courses, but each course is taught by exactly one instructor (Courses.InstructorID).&lt;br&gt;2) Students 1 : N Enrollments — one student can have many enrollment records (one for each course taken); each enrollment record belongs to exactly one student (Enrollments.StudentID).&lt;br&gt;3) Courses 1 : N Enrollments — one course can have many enrollment records (one for each registered student); each enrollment record refers to exactly one course (Enrollments.CourseID).&lt;br&gt;4) Students M : N Courses (logical) — a student can register for several courses and a course can have several students; this many-to-many relationship is resolved by the Enrollments table, so it is not a direct physical link.&lt;br&gt;&lt;br&gt;&lt;i&gt;Legend: || = exactly one; crow's foot with circle = zero or many; dashed line = logical M:N relationship.&lt;/i&gt;" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;strokeColor=#999999;fillColor=#F9F9F9;spacing=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="400" width="900" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="box_enroll" value="&lt;b&gt;How Enrollments represents registrations&lt;/b&gt;&lt;br&gt;Enrollments is a junction (associative) table. Each row links exactly one student to exactly one course and stores the registration details (EnrollmentDate, Grade, Status). A student's courses are found through the Enrollments rows that contain the student's ID, and a course's students through the rows that contain the course's ID.&lt;br&gt;&lt;br&gt;&lt;b&gt;Preventing duplicate registrations&lt;/b&gt;&lt;br&gt;A composite UNIQUE constraint on (StudentID, CourseID) in Enrollments lets each student–course pair appear only once, so a student cannot be registered twice for the same course. EnrollmentID remains the primary key of each enrollment record." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;strokeColor=#999999;fillColor=#F9F9F9;spacing=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="655" width="1300" height="135" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

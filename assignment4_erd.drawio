@@ -1,0 +1,198 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram id="assignment4-sales-erd" name="Sales DB ERD">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Assignment 4 — Sales Database ERD" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="15" width="700" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= PRODUCTS ================= -->
+        <mxCell id="tbl_products" value="Products" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="270" height="134" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod_r0" value="ProductID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_products">
+          <mxGeometry y="30" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_products">
+          <mxGeometry y="30" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod_r1" value="Product : VARCHAR(100)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_products">
+          <mxGeometry y="56" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod_r2" value="Category : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_products">
+          <mxGeometry y="82" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod_r3" value="Price : DECIMAL(10,2)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_products">
+          <mxGeometry y="108" width="270" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= CUSTOMERS ================= -->
+        <mxCell id="tbl_customers" value="Customers" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="270" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="cust_r0" value="CustomerID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_customers">
+          <mxGeometry y="30" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="cust_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_customers">
+          <mxGeometry y="30" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="cust_r1" value="FirstName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_customers">
+          <mxGeometry y="56" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="cust_r2" value="LastName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_customers">
+          <mxGeometry y="82" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="cust_r3" value="Country : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_customers">
+          <mxGeometry y="108" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="cust_r4" value="Score : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_customers">
+          <mxGeometry y="134" width="270" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= ORDERS ================= -->
+        <mxCell id="tbl_orders" value="Orders" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="430" y="110" width="270" height="342" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r0" value="OrderID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="30" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="30" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r1" value="ProductID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=2;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="56" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_k1" value="FK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#2F5FA7;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="56" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r2" value="CustomerID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=2;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="82" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_k2" value="FK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#2F5FA7;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="82" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r3" value="SalesPersonID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=2;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="108" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_k3" value="FK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#2F5FA7;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="108" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r4" value="OrderDate : DATE" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="134" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r5" value="ShipDate : DATE" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="160" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r6" value="OrderStatus : VARCHAR(30)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="186" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r7" value="ShipAddress : VARCHAR(150)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="212" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r8" value="BillAddress : VARCHAR(150)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="238" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r9" value="Quantity : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="264" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r10" value="Sales : DECIMAL(10,2)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="290" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ord_r11" value="CreationTime : DATETIME" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_orders">
+          <mxGeometry y="316" width="270" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= EMPLOYEES ================= -->
+        <mxCell id="tbl_employees" value="Employees" style="swimlane;fontStyle=1;fontSize=14;startSize=30;horizontal=1;collapsible=0;html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="820" y="110" width="270" height="238" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r0" value="EmployeeID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="30" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_k0" value="PK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#B85450;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="30" width="40" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r1" value="FirstName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="56" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r2" value="LastName : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="82" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r3" value="Department : VARCHAR(50)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="108" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r4" value="BirthDate : DATE" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="134" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r5" value="Gender : VARCHAR(10)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="160" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r6" value="Salary : DECIMAL(10,2)" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="186" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_r7" value="ManagerID : INT" style="shape=partialRectangle;top=1;left=0;right=0;bottom=0;fillColor=none;strokeColor=#BBBBBB;align=left;verticalAlign=middle;spacingLeft=48;overflow=hidden;html=1;whiteSpace=wrap;fontSize=12;fontStyle=2;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="212" width="270" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="emp_k7" value="FK" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontColor=#2F5FA7;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="tbl_employees">
+          <mxGeometry y="212" width="40" height="26" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= RELATIONSHIPS ================= -->
+        <!-- Products 1 : N Orders -->
+        <mxCell id="e_prod_orders" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmandOne;startArrow=ERzeroToMany;endFill=0;startFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ord_r1" target="prod_r0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="179"/>
+              <mxPoint x="370" y="113"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Customers 1 : N Orders -->
+        <mxCell id="e_cust_orders" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmandOne;startArrow=ERzeroToMany;endFill=0;startFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ord_r2" target="cust_r0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="205"/>
+              <mxPoint x="370" y="313"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Employees 1 : N Orders -->
+        <mxCell id="e_emp_orders" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmandOne;startArrow=ERzeroToMany;endFill=0;startFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ord_r3" target="emp_r0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="231"/>
+              <mxPoint x="760" y="153"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Employees (manager) 1 : N Employees (self-reference) -->
+        <mxCell id="e_emp_manager" value="1 : N" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERzeroToOne;startArrow=ERzeroToMany;endFill=0;startFill=0;startSize=12;endSize=12;strokeWidth=2;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontStyle=1;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="emp_r7" target="emp_r0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="335"/>
+              <mxPoint x="1140" y="153"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note_self" value="Self-reference:&lt;br&gt;ManagerID → EmployeeID" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="225" width="130" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ================= EXPLANATION ================= -->
+        <mxCell id="box_keys" value="&lt;b&gt;Primary Keys (PK)&lt;/b&gt;&lt;br&gt;• Customers.CustomerID&lt;br&gt;• Products.ProductID&lt;br&gt;• Employees.EmployeeID&lt;br&gt;• Orders.OrderID&lt;br&gt;&lt;br&gt;&lt;b&gt;Foreign Keys (FK)&lt;/b&gt;&lt;br&gt;• Orders.ProductID → Products.ProductID&lt;br&gt;• Orders.CustomerID → Customers.CustomerID&lt;br&gt;• Orders.SalesPersonID → Employees.EmployeeID&lt;br&gt;• Employees.ManagerID → Employees.EmployeeID (self-reference)" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;strokeColor=#999999;fillColor=#F9F9F9;spacing=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="500" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="box_rel" value="&lt;b&gt;Relationships and cardinality&lt;/b&gt;&lt;br&gt;1) Customers 1 : N Orders — one customer can place many orders; every order belongs to exactly one customer (Orders.CustomerID).&lt;br&gt;2) Products 1 : N Orders — a product can appear in many order records; each order record refers to exactly one product (Orders.ProductID).&lt;br&gt;3) Employees 1 : N Orders — one sales employee can process many orders; each order is assigned to exactly one sales employee (Orders.SalesPersonID).&lt;br&gt;4) Employees (manager) 1 : N Employees (self-reference) — a manager can supervise several employees; each employee has at most one manager (ManagerID, NULL for a top-level manager).&lt;br&gt;&lt;br&gt;&lt;i&gt;Legend: || = exactly one; crow's foot with circle = zero or many; circle with bar = zero or one.&lt;/i&gt;" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;strokeColor=#999999;fillColor=#F9F9F9;spacing=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="480" width="640" height="220" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
